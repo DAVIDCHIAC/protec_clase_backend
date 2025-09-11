@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 
 class ProductControler extends Controller
 {
+    
   function index(){
-        return"LISTADO DE PRODUCTOS";
+        return view("productos.index");
 
   }
   function create(){
-        return"products/create";
+        return view("productos.create");
 
   }
   function show ($name ,$categori = null)
