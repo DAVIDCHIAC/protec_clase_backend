@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class ProductControler extends Controller
+{
+  function index(){
+        return"LISTADO DE PRODUCTOS";
+
+  }
+  function create(){
+        return"products/create";
+
+  }
+  function show ($name ,$categori = null)
+  {if ($categori != null){
+        return "detalle de cada producto" . $name;
+    }else{
+     return "DETALLE DE CADA PRODUCTO" . $name . "de la categoria:" . $categori;
+    }
+}  //
+}

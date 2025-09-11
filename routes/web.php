@@ -1,20 +1,24 @@
 <?php
 
+use App\Http\Controllers\ProductControler;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get ("products",function(){
-    return"LISTADO DE PRODUCTOS";
-});
-Route::get ("products/create",function(){
-    return"FORMULARIO DE CADA PRODUCTO";
-});
+Route::get ("products",[ProductControler::class, "index"]);
 
-Route::get ("products/{name}/{categori}",function($name,$categori){
-    return"DETALLE DE CADA PRODUCTO" . $name."de ñ¿la categoria:" . $categori;
+Route::get ("products/create",[ProductControler::class, "create"]);
+
+
+Route::get ("products/{name}/{categori}",function($name,$categori = null){
+    if ($categori != null){
+        return "detalle de cada producto" . $name;
+    }else{
+     return "DETALLE DE CADA PRODUCTO" . $name . "de la categoria:" . $categori;
+    }
+
 });
 
 
