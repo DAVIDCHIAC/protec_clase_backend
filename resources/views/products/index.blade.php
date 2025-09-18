@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('title', 'Productos - STORE')
 
 @section('content')
