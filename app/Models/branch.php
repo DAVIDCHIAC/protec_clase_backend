@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Categorys extends Model
+class branch extends Model
 {
-    protected $table = 'categorys';
+    use HasFactory;
+    protected $table = 'branch';
     protected $fillable =["name"];
     public $timestamps = true;
 }
