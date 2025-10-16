@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\categories>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Categories>
  */
 class categoriesFactory extends Factory
 {
@@ -17,7 +17,7 @@ class categoriesFactory extends Factory
     public function definition(): array
     {
         return [
-            "name"=> fake()->name()
+            'name' => $this->faker->unique()->word(),
         ];
     }
 }

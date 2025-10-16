@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class branch extends Model
+class Branch extends Model
 {
     use HasFactory;
     protected $table = 'branch';
-    protected $fillable =["name"];
+    protected $fillable = ["name"];
     public $timestamps = true;
 }

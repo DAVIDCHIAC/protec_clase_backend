@@ -21,6 +21,9 @@ return new class extends Migration
             
             $table->foreignId('category_id')->references("id")->on('categories');
             $table->foreignId('branch_id')->references("id")->on('branch');
+            
+            
+
         });
     }
 
