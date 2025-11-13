@@ -26,6 +26,7 @@
                 <li><a href="#">Entretenimiento</a></li>
                 <li><a href="#">Soporte</a></li>
                 <li><a href="products">Dónde comprar</a></li>
+                <li ><a class="nav-link" href="{{ route("admin")}}">Admin</a></li>
                 <li>
                     <a href="#">
                         <svg class="apple-nav-search" xmlns="http://www.w3.org/2000/svg" width="15" height="44" viewBox="0 0 15 44"><path d="M14.2 20.6c-1.6-1.6-3.8-2.5-6.2-2.5-4.6 0-8.2 3.7-8.2 8.2s3.7 8.2 8.2 8.2 8.2-3.7 8.2-8.2c0-2.4-.9-4.6-2.5-6.2l-.2-.2zm-6.2 12.5c-3.5 0-6.4-2.9-6.4-6.4s2.9-6.4 6.4-6.4 6.4 2.9 6.4 6.4-2.8 6.4-6.4 6.4z"></path></svg>
