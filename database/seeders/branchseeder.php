@@ -25,7 +25,7 @@ class branchseeder extends Seeder
         $branch3->name="huawei";
         $branch3->save();
 
-        branch::factory(10)->create();
+        branch::factory(100)->create();
 
         
     }
