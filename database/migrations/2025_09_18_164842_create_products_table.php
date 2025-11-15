@@ -15,15 +15,21 @@ return new class extends Migration
             $table->id();
             $table->string("name");
             $table->text("description");
-            $table->decimal("price");
+            $table->decimal("price", 8, 2);
             $table->timestamps();
 
-            
-            $table->foreignId('category_id')->references("id")->on('categories');
-            $table->foreignId('branch_id')->references("id")->on('branch');
-            
-            
+            // Foreign keys básicas
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
+            $table->foreignId('branch_id')->constrained('branch')->onDelete('cascade');
 
+            
+            $table->unsignedBigInteger('imagenes_product_id')->nullable();
+
+            
+            $table->foreign('imagenes_product_id')
+                  ->references('id')
+                  ->on('imagenes_product')
+                  ->onDelete('cascade');
         });
     }
 
