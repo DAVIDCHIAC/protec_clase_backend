@@ -15,7 +15,7 @@
         </header>
     <div class="card mb-4">
         <div class="card-body">
-            <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data" style="display:flex; gap:30px; flex-wrap:wrap;">
+            <form action="{{ route('admin.product.store') }}" method="POST" enctype="multipart/form-data" style="display:flex; gap:30px; flex-wrap:wrap;">
             @csrf
 
             {{-- Imagen / Previsualización --}}

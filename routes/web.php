@@ -25,15 +25,17 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])
 
 Route::prefix("admin")->controller(AdminController::class)->group(function () {
     Route::get("/", "index")->name('admin');
+    
     Route::get('category/create', [CategoryController::class, 'create'])->name('admin.category.create');
     Route::post('category/store', [CategoryController::class, 'store'])->name('admin.category.store');
-    Route::get('product/create', [ProductController::class, 'create']);
-   
+    
+    Route::get('product/create', [ProductController::class, 'create'])->name('admin.product.create');
+    Route::post('product/store', [ProductController::class, 'store'])->name('admin.product.store');
 });
 //Route::prefix("category")->controller(CategoryController::class)->group(function () {
   //  Route::get("/create", "index")->name('categoryCreate');
    // Route::post("category/store", [CategoryController::class, 'store'])->name('category.store');
-   
+
 //});
 
 
