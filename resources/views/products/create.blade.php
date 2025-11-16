@@ -11,11 +11,10 @@
                 <h2 style="margin:0; font-size:1.6rem;">Agregar Nuevo Producto</h2>
                 <p style="margin:6px 0 0; color:#6e6e73;">Completa los datos para añadir un producto al catálogo</p>
             </div>
-            <a href="{{ route('products.index') }}" class="btn-apple" style="padding:8px 14px; font-size:0.9rem;">Volver al listado</a>
+            <a href="{{ route('admin.product.table') }}" class="btn-apple" style="padding:8px 14px; font-size:0.9rem;">Volver al listado</a>
         </header>
-    <div class="card mb-4">
-        <div class="card-body">
-            <form action="{{ route('admin.product.store') }}" method="POST" enctype="multipart/form-data" style="display:flex; gap:30px; flex-wrap:wrap;">
+
+        <form action="{{ route('admin.product.store') }}" method="POST" enctype="multipart/form-data" style="display:flex; gap:30px; flex-wrap:wrap;">
             @csrf
 
             {{-- Imagen / Previsualización --}}
@@ -99,19 +98,16 @@
                 </div>
 
                 <div style="display:flex; gap:12px; margin-top:18px; justify-content:flex-end;">
-                    <a href="{{ route('products.index') }}" class="btn-apple" style="background:#6e6e73; color:#fff;">Cancelar</a>
+                    <a href="{{ route('admin.product.table') }}" class="btn-apple" style="background:#6e6e73; color:#fff;">Cancelar</a>
                     <button type="submit" class="btn-apple" style="background:#0071e3;">Agregar Producto</button>
                 </div>
             </div>
         </form>
-
-        </div>
     </div>
+</div>
 
-{{-- JS: vista previa de imagen, validación sencilla y floating labels --}}
 <script>
 document.addEventListener('DOMContentLoaded', function(){
-    // preview imagen
     const input = document.getElementById('imagen');
     const preview = document.getElementById('imgPreview');
     const customBtn = document.querySelector('.custom-file-btn');
@@ -133,7 +129,6 @@ document.addEventListener('DOMContentLoaded', function(){
         reader.readAsDataURL(file);
     });
 
-    // floating labels: marcar .filled si hay valor
     function refreshFilled(el){
         const group = el.closest('.input-group');
         if(!group) return;
@@ -142,16 +137,13 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     document.querySelectorAll('.input-group .form-control-apple').forEach(function(el){
-        // inicial
         refreshFilled(el);
-        // eventos
         el.addEventListener('input', ()=> refreshFilled(el));
         el.addEventListener('change', ()=> refreshFilled(el));
         el.addEventListener('focus', ()=> el.closest('.input-group')?.classList.add('filled'));
         el.addEventListener('blur', ()=> refreshFilled(el));
     });
 
-    // select: refrescar al cambiar
     document.querySelectorAll('.input-group select').forEach(function(sel){
         refreshFilled(sel);
         sel.addEventListener('change', ()=> refreshFilled(sel));

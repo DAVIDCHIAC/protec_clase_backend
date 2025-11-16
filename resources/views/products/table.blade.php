@@ -1,4 +1,4 @@
-<?php
+
 @extends('admin.layouts.app')
 
 @section('content')
@@ -10,7 +10,7 @@
                     <h2 style="margin: 0; font-size: 1.5rem;">Lista de Productos</h2>
                     <p style="margin: 6px 0 0; color: #6e6e73;">Total: {{ count($products) }} productos</p>
                 </div>
-                <a href="{{ route('products.create') }}" class="btn-apple" style="background: #0071e3;">+ Agregar Producto</a>
+                <a href="{{ route('admin.product.create') }}" class="btn-apple" style="background: #0071e3;">+ Agregar Producto</a>
             </div>
 
             <div style="overflow-x: auto;">
@@ -46,8 +46,8 @@
                             <td style="padding: 12px;">
                                 <div style="display: flex; gap: 8px;">
                                     <a href="{{ route('products.show', $product->id) }}" class="btn-apple" style="background: #0071e3; padding: 6px 10px; font-size: 0.85rem;">Ver</a>
-                                    <a href="{{ route('products.edit', $product->id) }}" class="btn-apple" style="background: #5ac8fa; padding: 6px 10px; font-size: 0.85rem;">Editar</a>
-                                    <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('¿Eliminar este producto?');">
+                                    <a href="{{ route('admin.product.edit', $product->id) }}" class="btn-apple" style="background: #5ac8fa; padding: 6px 10px; font-size: 0.85rem;">Editar</a>
+                                    <form action="{{ route('admin.product.destroy', $product->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('¿Eliminar este producto?');">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn-apple" style="background: #ff6b6b; padding: 6px 10px; font-size: 0.85rem; border: none;">Eliminar</button>
@@ -58,7 +58,7 @@
                         @empty
                         <tr>
                             <td colspan="7" style="padding: 24px; text-align: center; color: #a1a1a6;">
-                                No hay productos registrados. <a href="{{ route('products.create') }}" style="color: #0071e3; text-decoration: none;">Crear uno ahora</a>
+                                No hay productos registrados. <a href="{{ route('admin.product.create') }}" style="color: #0071e3; text-decoration: none;">Crear uno ahora</a>
                             </td>
                         </tr>
                         @endforelse
